@@ -38,7 +38,7 @@ jobs:
         env:
           PROD_DB_NAME: ${{ secrets.PROD_DB_NAME }}
           PROD_CLIENT_URL: ${{ secrets.PROD_CLIENT_URL }}
-        run: npx mikro-orm migration:up dist/src/config/database-production.config.js 
+        run: npx mikro-orm migration:up 
       
 
 

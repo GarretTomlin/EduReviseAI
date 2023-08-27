@@ -29,6 +29,9 @@ export class QuestionBank {
   @Property()
   difficulty!: Difficulty;
 
+  @Property({ type: 'text' })
+  type: string;
+
   @OneToMany(() => Question, (question) => question.questionBank)
   questions = new Collection<Question>(this);
 

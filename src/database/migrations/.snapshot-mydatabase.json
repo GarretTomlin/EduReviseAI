@@ -41,6 +41,15 @@
           "primary": false,
           "nullable": false,
           "mappedType": "integer"
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
         }
       },
       "name": "question_bank",
@@ -90,12 +99,13 @@
         },
         "email": {
           "name": "email",
-          "type": "varchar(255)",
+          "type": "text",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "string"
+          "default": "'example@gmail.com'",
+          "mappedType": "text"
         },
         "created_at": {
           "name": "created_at",
