@@ -6,7 +6,6 @@ import {
   Patch,
   Param,
   Delete,
-  Query,
 } from '@nestjs/common';
 import { QuestionsService } from './questions.service';
 import { CreateQuestionDto } from './dto/create-question.dto';
@@ -22,8 +21,8 @@ export class QuestionsController {
   }
 
   @Get('all')
-  async findAll(@Query() query?: Record<string, any>) {
-    const questions = await this.questionsService.findAll(query);
+  async findAll() {
+    const questions = await this.questionsService.findAll();
     return questions;
   }
 

@@ -41,10 +41,7 @@ export class QuestionsService {
     return question;
   }
 
-  async findAll(query?: Record<string, any>): Promise<any[]> {
-    if (query) {
-      return this.queryBuilderService.buildQuery(() => Question, query);
-    }
+  async findAll(): Promise<Question[]> {
     return this.questionRepository.findAll();
   }
 

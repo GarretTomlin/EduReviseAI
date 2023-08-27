@@ -55,6 +55,17 @@ describe('QuestionController (e2e)', () => {
     expect(update.status).toBe(200);
   });
 
+  it('it should fetch all questions', async () => {
+    const fetch = await request(app.getHttpServer()).get('/questions/all');
+    expect(fetch.status).toBe(200);
+  });
+
+  it('it should delete the created question', async () => {
+    const remove = await request(app.getHttpServer()).delete(
+      `/questions/${createdQuestion.id}`,
+    );
+    expect(remove.status).toBe(200);
+  });
   afterAll(async () => {
     await entityManager.nativeDelete(Question, { id: createdQuestion.id });
     await app.close();
