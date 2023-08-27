@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">"Elevate Learning Assessments Effortlessly with EduReviseAI: Your Tool for Smarter Questioning.</p>
+  <p align="center">Elevate Learning Assessments Effortlessly with EduReviseAI: Your Tool for Smarter Questioning.</p>
     <p align="center">
 
 ## EduRevise
