@@ -34,7 +34,7 @@ jobs:
         run: yarn test:e2e
         env:
           DB_NAME: ${{ secrets.E2E_DB_NAME }}
-          CLIENT_URL: ${{ secrets.E2E__CLIENT_URL }}
+          CLIENT_URL: ${{ secrets.E2E_CLIENT_URL }}
 
       - name: Build application
         run: yarn run build
