@@ -81,7 +81,9 @@
     "useTsNode": true,
     "configPaths": [
       "./src/config/mikro-orm.config.ts",
-      "./dist/src/config/mikro-orm.config.js"
+      "./dist/src/config/mikro-orm.config.js",
+      "./src/config/database-production.config.ts",
+      "./dist/src/config/database-production.config.js"
     ]
   }
 }
