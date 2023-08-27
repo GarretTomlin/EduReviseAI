@@ -4,6 +4,7 @@
   "description": "",
   "author": "",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -79,8 +80,8 @@
   "mikro-orm": {
     "useTsNode": true,
     "configPaths": [
-      "./src/config/database-production.config.ts",
-      "./dist/src/config/database-production.config.js"
+      "./src/config/mikro-orm.config.ts",
+      "./dist/src/config/mikro-orm.config.js"
     ]
   }
 }

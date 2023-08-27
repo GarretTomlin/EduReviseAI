@@ -36,8 +36,8 @@ jobs:
       - name: Run migrations on production
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         env:
-          PROD_DB_NAME: ${{ secrets.PROD_DB_NAME }}
-          PROD_CLIENT_URL: ${{ secrets.PROD_CLIENT_URL }}
+          DB_NAME: ${{ secrets.PROD_DB_NAME }}
+          CLIENT_URL: ${{ secrets.PROD_CLIENT_URL }}
         run: npx mikro-orm migration:up 
       
 
