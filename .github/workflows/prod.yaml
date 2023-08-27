@@ -31,10 +31,14 @@ jobs:
         run: yarn test
 
       - name: Run E2E tests
-        run: yarn test:e2e
         env:
           DB_NAME: ${{ secrets.E2E_DB_NAME }}
           CLIENT_URL: ${{ secrets.E2E_CLIENT_URL }}
+        run: |
+          npx mikro-orm migration:up
+          yarn test:e2e
+      
+
 
       - name: Build application
         run: yarn run build
