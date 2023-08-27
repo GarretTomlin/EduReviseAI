@@ -7,11 +7,11 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
   imports: [
     NestMailerModule.forRoot({
       transport: {
-        host: 'smtp.example.com',
-        port: 587,
+        host: process.env.MAILER_HOST,
+        port: process.env.MAILER_PORT,
         auth: {
-          user: 'your_email@example.com',
-          pass: 'your_password',
+          user: process.env.MAILER_USERNAME,
+          pass: process.env.MAILER_PASSWORD,
         },
       },
       template: {
