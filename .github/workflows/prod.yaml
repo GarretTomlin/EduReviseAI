@@ -31,7 +31,7 @@ jobs:
         run: yarn test
 
       - name: Run E2E tests
-        run: yarn test
+        run: yarn test:e2e
 
       - name: Build application
         run: yarn run build
