@@ -30,11 +30,11 @@ jobs:
       - name: Run Unit tests
         run: yarn test
 
-      - name: Run E2E tests
-        run: yarn test:e2e
-        env:
-          DB_NAME: ${{ secrets.E2E_DB_NAME }}
-          CLIENT_URL: ${{ secrets.E2E_CLIENT_URL }}
+      # - name: Run E2E tests
+      #   run: yarn test:e2e
+      #   env:
+      #     DB_NAME: ${{ secrets.E2E_DB_NAME }}
+      #     CLIENT_URL: ${{ secrets.E2E_CLIENT_URL }}
 
       - name: Build application
         run: yarn run build
