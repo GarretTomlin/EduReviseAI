@@ -17,5 +17,14 @@ export class MailerService {
     });
   }
 
-  async resetPassword() {}
+  async SendResetPassword(userEmail: string, resetLink: string) {
+    await this.mailerService.sendMail({
+      to: userEmail,
+      subject: 'EduRevise - Reset Password',
+      template: join(__dirname, 'template', 'password-reset.mailer'),
+      context: {
+        resetLink: resetLink,
+      },
+    });
+  }
 }
