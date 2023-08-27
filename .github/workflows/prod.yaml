@@ -49,7 +49,7 @@ jobs:
         env:
           DB_NAME: ${{ secrets.PROD_DB_NAME }}
           CLIENT_URL: ${{ secrets.PROD_CLIENT_URL }}
-        run: npx mikro-orm migration:fresh 
+        run: npx mikro-orm migration:up
       
 
 
