@@ -24,4 +24,4 @@ RUN yarn global add pm2
 EXPOSE 3000
 
 # Use PM2 to start the app
-CMD ["pm2-runtime", "dist/src/main.js", "--name", "edu-revise-ai"]
+CMD ["pm2-runtime", "dist/src/main.js", "--name", "edu-revise"]
