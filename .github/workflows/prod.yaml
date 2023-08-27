@@ -37,7 +37,7 @@ jobs:
         run: |
           npx mikro-orm migration:fresh
           npx mikro-orm migration:up
-          yarn test:e2e
+          yarn test:e2e  --runInBand --detectOpenHandles --forceExit
       
 
 
