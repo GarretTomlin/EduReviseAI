@@ -8,7 +8,7 @@ const config: Options = {
   dbName: process.env.DB_NAME,
   type: 'postgresql',
   debug: true,
-  clientUrl: `postgresql://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+  clientUrl: process.env.CLIENT_URL,
   logger: logger.log.bind(logger),
   migrations: {
     path: 'src/database/migrations',
