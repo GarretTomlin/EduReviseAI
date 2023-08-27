@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/core';
-import { Question, QuestionBank, User } from 'src/database/entities';
+import { Question, QuestionBank, User } from '../../database/entities';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
-import { QueryBuilderService } from 'src/shared/query-builder.service';
+import { QueryBuilderService } from '../../shared/utils/query-builder.service';
 
 @Injectable()
 export class QuestionsService {
