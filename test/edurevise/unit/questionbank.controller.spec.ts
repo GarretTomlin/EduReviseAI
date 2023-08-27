@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { QuestionbankController } from 'src/modules/questionbank/questionbank.controller';
-import { QuestionbankService } from 'src/modules/questionbank/questionbank.service';
+import { QuestionbankController } from '../../../src/modules/questionbank/questionbank.controller';
+import { QuestionbankService } from '../../../src/modules/questionbank/questionbank.service';
 
 describe('QuestionbankController', () => {
   let controller: QuestionbankController;
