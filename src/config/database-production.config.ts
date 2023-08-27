@@ -3,12 +3,12 @@ import { Options } from '@mikro-orm/core';
 import entities from '../database/entities';
 
 const logger = new Logger('MikroORM');
-const databaseDevConfig: Options = {
+const databaseProdConfig: Options = {
   entities: entities,
-  dbName: process.env.DB_NAME,
+  dbName: process.env.PROD_DB_NAME,
   type: 'postgresql',
   debug: true,
-  clientUrl: process.env.CLIENT_URL,
+  clientUrl: process.env.PROD_CLIENT_URL,
   logger: logger.log.bind(logger),
   migrations: {
     path: 'src/database/migrations',
@@ -18,4 +18,4 @@ const databaseDevConfig: Options = {
   },
 };
 
-export default databaseDevConfig;
+export default databaseProdConfig;
