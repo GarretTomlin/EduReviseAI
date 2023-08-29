@@ -12,6 +12,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: mydb
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -32,15 +43,12 @@ jobs:
 
       - name: Run E2E tests
         env:
-          DB_NAME: ${{ secrets.E2E_DB_NAME }}
-          CLIENT_URL: ${{ secrets.E2E_CLIENT_URL }}
+          DB_NAME: mydb
+          CLIENT_URL: 'postgresql://postgres:postgres@localhost:5432/mydb'
         run: |
           npx mikro-orm migration:fresh
-          npx mikro-orm migration:up
           yarn test:e2e  --runInBand --detectOpenHandles --forceExit
-      
-
-
+          
       - name: Build application
         run: yarn run build
 
@@ -50,6 +58,3 @@ jobs:
           DB_NAME: ${{ secrets.PROD_DB_NAME }}
           CLIENT_URL: ${{ secrets.PROD_CLIENT_URL }}
         run: npx mikro-orm migration:up
-      
-
-

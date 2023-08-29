@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.ts",
   "author": "Garret Tomlin",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "openai": "^4.3.0"
+  }
 }
