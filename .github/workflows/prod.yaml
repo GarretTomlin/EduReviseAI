@@ -77,7 +77,8 @@ jobs:
               yarn install --frozen-lockfile
               yarn run lint && yarn run build  
       
-  
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
   
   publishPackage:
       needs: packageChanges
