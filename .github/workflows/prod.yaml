@@ -60,50 +60,40 @@ jobs:
         run: npx mikro-orm migration:up
 
     if: github.event_name == 'push' && contains(github.event.head_commit.modified, 'packages/')
-  packageChanges:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "pnpm"
-
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run lint && pnpm run build
-      
  
-
+  packageChanges:
+      runs-on: ubuntu-latest
+  
+      steps:
+        - uses: actions/checkout@v3
+  
+        - name: Setup Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: 16.x
+            
+        - run: yarn install --frozen-lockfile
+        - run: yarn run lint && yarn run build  
+  
+  
   publishPackage:
-    needs: packageChanges
-    if: needs.packageChanges.result == 'success'
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "pnpm"
-
-      - run: pnpm install --frozen-lockfile
-      - name: Create Release Pull Request or Publish
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GGITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      needs: packageChanges
+      if: needs.packageChanges.result == 'success'
+  
+      runs-on: ubuntu-latest
+  
+      steps:
+        - uses: actions/checkout@v3
+  
+        - name: Setup Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: 16.x
+  
+        - run: yarn install --frozen-lockfile
+        - name: Create Release Pull Request or Publish
+          id: changesets
+          run: yarn run release
+          env:
+            GITHUB_TOKEN: ${{ secrets.GGITHUB_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
