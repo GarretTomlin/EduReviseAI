@@ -59,9 +59,8 @@ jobs:
           CLIENT_URL: ${{ secrets.PROD_CLIENT_URL }}
         run: npx mikro-orm migration:up
 
- 
+    if: github.event_name == 'push' && contains(github.event.head_commit.modified, 'packages/')
   packageChanges:
-      if: github.event_name == 'push' && contains(github.event.head_commit.modified, 'packages/')
       runs-on: ubuntu-latest
   
       steps:
