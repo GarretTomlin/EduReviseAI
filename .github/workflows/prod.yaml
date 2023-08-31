@@ -58,3 +58,53 @@ jobs:
           DB_NAME: ${{ secrets.PROD_DB_NAME }}
           CLIENT_URL: ${{ secrets.PROD_CLIENT_URL }}
         run: npx mikro-orm migration:up
+
+
+  packageChanges:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint && pnpm run build
+      
+    # Run the job only if changes are made in the "package" folder
+    if: github.event_name == 'push' && startsWith(github.event.head_commit.modified[0], 'packages/')
+
+  publishPackage:
+    needs: packageChanges
+    if: needs.packageChanges.result == 'success'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GGITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
