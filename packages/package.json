@@ -11,6 +11,9 @@
     "release": "yarn run build && changeset publish",
     "start": "ts-node"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "changesets": "^1.0.2",
     "init": "^0.1.2",
