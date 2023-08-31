@@ -45,7 +45,9 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
+## NPM Package
 
+[Edurevise](https://www.npmjs.com/package/edureviseai)
 
 ## License
 
