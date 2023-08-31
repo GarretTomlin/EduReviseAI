@@ -1,0 +1,5 @@
+---
+'edureviseai': patch
+---
+
+update name
