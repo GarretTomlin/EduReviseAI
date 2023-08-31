@@ -9,6 +9,7 @@
   "scripts": {
     "build": "tsup ./edureviseai/src/index.ts --format cjs,esm --dts",
     "release": "yarn run build && changeset publish",
+    "lint": "tsc",
     "start": "ts-node"
   },
   "publishConfig": {
