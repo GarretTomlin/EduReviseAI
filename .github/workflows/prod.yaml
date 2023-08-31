@@ -79,7 +79,7 @@ jobs:
       
   publishPackage:
       needs: packageChanges
-      if: needs.packageChanges.result == 'success'
+      if: needs.packageChanges.result == 'success' && github.ref == 'refs/heads/main'
   
       runs-on: ubuntu-latest
   
