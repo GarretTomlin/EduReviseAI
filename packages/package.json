@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsup ./edureviseai/src/index.ts --format cjs,esm --dts",
+    "release": "yarn run build && changeset publish",
     "start": "ts-node"
   },
   "dependencies": {
