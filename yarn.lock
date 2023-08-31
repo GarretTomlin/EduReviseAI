@@ -2776,10 +2776,10 @@ editorconfig@^1.0.3:
     minimatch "9.0.1"
     semver "^7.5.3"
 
-eduviseai@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/eduviseai/-/eduviseai-1.1.0.tgz#90662ea965d58177aaac0e77d3a80ee954da134b"
-  integrity sha512-0dQa5fqgksSH+rEUM/xSCwVotfoTMiCrmQzdV9BaiTy51MLtJJriynYyCesYYVcOzhhs7li3uSvQ5fUhb+VxQw==
+edureviseai@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/edureviseai/-/edureviseai-1.2.1.tgz#c93d3b81772562427ad341859f32874141e02111"
+  integrity sha512-1EsqmRjdWH8ax+c7FxBcILXRzE+HDCZE00PyH5BxHgcWL8pUoH4XbncTpqeejY/6E5dFQGvn/VmlzDS2HfwLsA==
   dependencies:
     changesets "^1.0.2"
     init "^0.1.2"

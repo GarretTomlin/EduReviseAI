@@ -32,6 +32,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
     "class-validator": "^0.14.0",
+    "edureviseai": "^1.2.1",
     "handlebars": "^4.7.8",
     "nodemailer": "^6.9.4",
     "reflect-metadata": "^0.1.13",
