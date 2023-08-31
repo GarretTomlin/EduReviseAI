@@ -1,0 +1,5 @@
+---
+'eduviseai': minor
+---
+
+add readme
