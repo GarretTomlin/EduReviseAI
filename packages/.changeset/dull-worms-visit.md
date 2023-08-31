@@ -2,4 +2,4 @@
 'eduviseai': patch
 ---
 
-update bath
+update batch function
