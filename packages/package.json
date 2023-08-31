@@ -1,6 +1,6 @@
 {
   "name": "eduviseai",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -8,8 +8,12 @@
   "license": "MIT",
   "scripts": {
     "build": "tsup ./edureviseai/src/index.ts --format cjs,esm --dts",
-    "release": "yarn run build && changeset publish",
+    "release": "yarn run build && changeset publish --access public",
+    "lint": "tsc",
     "start": "ts-node"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "changesets": "^1.0.2",
