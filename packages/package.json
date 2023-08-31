@@ -1,10 +1,24 @@
 {
   "name": "eduviseai",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "author": "Garret Tomlin",
   "license": "MIT",
+  "scripts": {
+    "build": "tsup ./edureviseai/src/index.ts --format cjs,esm --dts",
+    "start": "ts-node"
+  },
   "dependencies": {
-    "openai": "^4.3.0"
+    "changesets": "^1.0.2",
+    "init": "^0.1.2",
+    "openai": "^4.3.0",
+    "ts-node": "^10.9.1",
+    "tsup": "^7.2.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "typescript": "^5.2.2"
   }
 }
