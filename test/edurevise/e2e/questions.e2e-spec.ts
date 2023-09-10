@@ -5,6 +5,7 @@ import { AppModule } from '../../../src/app.module';
 import { QuestionFactory } from '../../../src/database/factory/question.factory';
 import { EntityManager } from '@mikro-orm/core';
 import { Question } from '../../../src/database/entities/edurevise/question.entity';
+import { beforeAll, afterAll, describe, it, expect } from 'bun:test';
 
 describe('QuestionController (e2e)', () => {
   let app: INestApplication;
@@ -12,7 +13,7 @@ describe('QuestionController (e2e)', () => {
   let entityManager: EntityManager;
   let createdQuestion: Question;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();

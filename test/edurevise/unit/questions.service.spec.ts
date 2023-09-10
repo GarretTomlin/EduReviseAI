@@ -3,7 +3,7 @@ import { QuestionsService } from '../../../src/modules/questions/questions.servi
 import { QuestionsModule } from '../../../src/modules/questions/questions.module';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Question, User, QuestionBank } from '../../../src/database/entities';
-import { QueryBuilderService } from '../../../src/shared/utils/query-builder.service';
+import { beforeEach, describe, it, expect } from 'bun:test';
 
 describe('QuestionsService', () => {
   let service: QuestionsService;
@@ -15,7 +15,7 @@ describe('QuestionsService', () => {
         MikroOrmModule.forRoot(),
         MikroOrmModule.forFeature({ entities: [Question, User, QuestionBank] }),
       ],
-      providers: [QuestionsService, QueryBuilderService],
+      providers: [QuestionsService],
     }).compile();
 
     service = module.get<QuestionsService>(QuestionsService);

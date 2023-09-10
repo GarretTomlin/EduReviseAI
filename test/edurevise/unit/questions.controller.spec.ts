@@ -4,7 +4,7 @@ import { QuestionsService } from '../../../src/modules/questions/questions.servi
 import { QuestionsModule } from '../../../src/modules/questions/questions.module';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Question, User, QuestionBank } from '../../../src/database/entities';
-import { QueryBuilderService } from '../../../src/shared/utils/query-builder.service';
+import { beforeEach, describe, it, expect } from 'bun:test';
 
 describe('QuestionsController', () => {
   let controller: QuestionsController;
@@ -17,7 +17,7 @@ describe('QuestionsController', () => {
         MikroOrmModule.forFeature({ entities: [Question, User, QuestionBank] }),
       ],
       controllers: [QuestionsController],
-      providers: [QuestionsService, QueryBuilderService],
+      providers: [QuestionsService],
     }).compile();
 
     controller = module.get<QuestionsController>(QuestionsController);

@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from '../../../src/modules/users/users.service';
+import { beforeEach, describe, it, expect } from 'bun:test';
 
 describe('UsersService', () => {
   let service: UsersService;

@@ -4,7 +4,6 @@ import { EntityRepository } from '@mikro-orm/core';
 import { Question, QuestionBank, User } from '../../database/entities';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
-import { QueryBuilderService } from '../../shared/utils/query-builder.service';
 
 @Injectable()
 export class QuestionsService {
@@ -15,7 +14,6 @@ export class QuestionsService {
     private readonly questionBankRepository: EntityRepository<QuestionBank>,
     @InjectRepository(User)
     private readonly userRepository: EntityRepository<User>,
-    private readonly queryBuilderService: QueryBuilderService,
   ) {}
 
   async create(createQuestionDto: CreateQuestionDto) {
