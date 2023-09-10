@@ -1,0 +1,26 @@
+name: Monthly Database Backup
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Run on the 1st day of every month
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up PostgreSQL
+        run: |
+          export DB_HOST=$DB_HOST
+          export DB_PORT=$DB_PORT
+          export DB_NAME=$DB_NAME
+          export DB_USER=$DB_USER
+          export DB_PASSWORD=$DB_PASSWORD
+
+      - name: Run backup script
+        run: ./backup.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
