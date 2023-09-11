@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/core';
 import { Question, QuestionBank, User } from '../../database/entities';
@@ -34,9 +34,12 @@ export class QuestionsService {
 
     const question = new Question(message, author, questionBank);
 
-    await this.questionRepository.create(question);
-
-    return question;
+    this.questionRepository.create(question);
+    return {
+      question,
+      message: `Question created successfully`,
+      status: HttpStatus.CREATED,
+    };
   }
 
   async findAll(): Promise<Question[]> {
@@ -48,7 +51,11 @@ export class QuestionsService {
     if (!question) {
       throw new NotFoundException(`Question with ID ${id} not found`);
     }
-    return question;
+    return {
+      question,
+      message: `Question with ID ${id} not found`,
+      status: HttpStatus.NOT_FOUND,
+    };
   }
 
   async update(id: number, updateQuestionDto: UpdateQuestionDto) {
@@ -57,7 +64,11 @@ export class QuestionsService {
       throw new NotFoundException(`Question with ID ${id} not found`);
     }
     this.questionRepository.nativeUpdate(question, updateQuestionDto);
-    return question;
+    return {
+      question,
+      message: `Question with ID ${id} updated successfully`,
+      status: HttpStatus.OK,
+    };
   }
 
   async remove(id: number) {
@@ -66,6 +77,9 @@ export class QuestionsService {
       throw new NotFoundException(`Question with ID ${id} not found`);
     }
     this.questionRepository.nativeDelete(question);
-    return `Question with ID ${id} removed successfully`;
+    return {
+      message: `Question with ID ${id} removed successfully`,
+      status: HttpStatus.OK,
+    };
   }
 }
