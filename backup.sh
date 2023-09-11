@@ -11,9 +11,9 @@ DB_PASSWORD="$DB_PASSWORD"
 BACKUP_DIR="/path/to/backup/directory"
 
 # GitHub repository details
-GITHUB_REPO="yourusername/yourrepository"
+GITHUB_REPO="https://github.com/GarretTomlin/EduReviseAI"
 GITHUB_BRANCH="main"
-GITHUB_TOKEN="$GITHUB_TOKEN"
+GITHUB_TOKEN="$GGITHUB_TOKEN"
 
 # Create a timestamp for the dump file
 TIMESTAMP=$(date +"%Y%m%d%H%M%S")
