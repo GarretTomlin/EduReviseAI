@@ -16,7 +16,7 @@
     "migrate": "bun mikro-orm migration:up",
     "migrate:create": "bun mikro-orm migration:create ",
     "migrate:rollback": "bun mikro-orm migration:down",
-    "migrate:fresh":  "bun mikro-orm migration:fresh",
+    "migrate:fresh": "bun mikro-orm migration:fresh",
     "seeder:run": "bun mikro-orm seeder:run",
     "seeder:create": "bun  mikro-orm seeder:create",
     "test": "bun test",
@@ -44,11 +44,7 @@
     "nodemailer": "^6.9.4",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1",
-    "sequelize": "^6.32.1",
-    "sequelize-cli": "^6.6.1",
-    "sequelize-typescript": "^2.1.5"
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
